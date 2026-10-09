@@ -1,0 +1,453 @@
+/* dis u? illustration portfolio */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+/* Design tokens */
+:root {
+  --color-blue: #dff1ff;
+  --color-pink: #ffdce8;
+  --color-light-pink: #fff2f6;
+  --color-purple: #8b6bb1;
+  --color-white: #ffffff;
+  --color-text: #4d382a;
+
+  --font-heading: "Fredoka", sans-serif;
+  --font-body: Helvetica, Arial, sans-serif;
+
+  --text-small: 0.875rem;
+  --text-normal: 1rem;
+  --text-large: 1.25rem;
+  --text-title: 2rem;
+
+  --space-small: 8px;
+  --space-medium: 16px;
+  --space-large: 24px;
+  --space-section: 48px;
+}
+
+/* Basic styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-normal);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Pink and white stripes */
+main {
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-light-pink) 0,
+    var(--color-light-pink) 50px,
+    var(--color-white) 50px,
+    var(--color-white) 100px
+  );
+}
+
+.logo,
+.illustrations-section h2,
+.contact-content h2 {
+  color: var(--color-white);
+  -webkit-text-stroke: 1.5px var(--color-purple);
+  paint-order: stroke fill;
+  text-shadow:
+    2px 2px 0 var(--color-purple),
+    -2px -2px 0 var(--color-purple),
+    2px -2px 0 var(--color-purple),
+    -2px 2px 0 var(--color-purple);
+}
+
+/* Header and navigation */
+.site-header {
+  background-color: var(--color-blue);
+  padding: var(--space-medium) var(--space-large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: var(--text-title);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  padding: 8px 10px;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: var(--color-pink);
+}
+
+nav a:focus-visible {
+  outline: 3px solid var(--color-purple);
+  outline-offset: 3px;
+}
+
+/* Home section */
+.home-section {
+  min-height: 70vh;
+  padding: var(--space-section) 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Desktop layout */
+@media (min-width: 900px) {
+  .home-content {
+    gap: 12px;
+  }
+}
+
+/*  ogo area */
+.home-logo {
+  width: 100%;
+  max-width: 800px;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-logo img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+/* Welcome panel */
+.welcome-box {
+  width: 100%;
+  max-width: 600px;
+  padding: 32px 24px;
+  text-align: center;
+  background-color: var(--color-white);
+  border: 3px solid var(--color-purple);
+  border-radius: 24px;
+}
+
+.welcome-box h1 {
+  margin-top: 0;
+  color: var(--color-purple);
+  font-size: var(--text-title);
+}
+
+.welcome-box p {
+  margin-bottom: var(--space-large);
+}
+
+.browse-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--color-pink);
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--color-purple);
+  border-radius: 24px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.browse-button:hover {
+  background-color: var(--color-blue);
+  transform: translateY(-2px);
+}
+
+.browse-button:focus-visible {
+  outline: 3px solid var(--color-purple);
+  outline-offset: 4px;
+}
+
+/* Illustrations section */
+.illustrations-section {
+  padding: var(--space-section) 20px;
+  text-align: center;
+  background-color: transparent;
+}
+
+.illustrations-section h2 {
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-size: var(--text-title);
+}
+
+/* Artwork grid */
+.art-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-large);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.art-card {
+  padding: 12px;
+  background-color: var(--color-light-pink);
+  border: 2px solid var(--color-purple);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.art-card:hover {
+  transform: translateY(-4px);
+}
+
+.art-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: var(--color-white);
+  border-radius: 12px;
+}
+
+/* Contact section */
+.contact-section {
+  padding: var(--space-section) 20px;
+  background-color: transparent;
+}
+
+.contact-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-content h2 {
+  margin-top: 0;
+  font-size: var(--text-title);
+}
+
+/* Social media table */
+.socials {
+  margin: 28px 0;
+  padding: 20px;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-purple);
+  border-radius: 20px;
+}
+
+.socials h3 {
+  margin-top: 0;
+  color: var(--color-purple);
+}
+
+.socials table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-white);
+}
+
+.socials caption {
+  padding: 10px;
+  font-family: var(--font-heading);
+  caption-side: top;
+}
+
+.socials th,
+.socials td {
+  padding: 12px;
+  border: 1px solid var(--color-purple);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.socials thead {
+  background-color: var(--color-pink);
+}
+
+.socials tbody th {
+  font-weight: 600;
+}
+
+/* Contact form */
+.contact-form {
+  padding: 24px;
+  text-align: left;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-purple);
+  border-radius: 20px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font: inherit;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-purple);
+  border-radius: 10px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input:focus-visible,
+.form-group select:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 3px solid var(--color-purple);
+  outline-offset: 2px;
+}
+
+/* Submit button */
+.submit-button {
+  width: 100%;
+  padding: 12px 20px;
+  font: inherit;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: var(--color-pink);
+  border: 2px solid var(--color-purple);
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: var(--color-blue);
+}
+
+.submit-button:focus-visible {
+  outline: 3px solid var(--color-purple);
+  outline-offset: 4px;
+}
+
+/* Footer */
+.site-footer {
+  padding: 18px 20px;
+  text-align: center;
+  background-color: var(--color-blue);
+  border-top: 2px solid var(--color-purple);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* Tablet layout */
+@media (min-width: 600px) {
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .art-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-form {
+    padding: 32px;
+  }
+  
+nav ul {
+  gap: 12px;
+}
+
+nav a {
+  padding: 8px 14px;
+  font-size: 1rem;
+}
+}
+
+/* Desktop layout */
+@media (min-width: 900px) {
+  .home-section {
+    min-height: 80vh;
+  }
+
+  .home-content {
+    gap: 32px;
+  }
+
+  .home-logo {
+    max-width: 900px;
+    min-height: 300px;
+  }
+
+  .home-logo img {
+    max-width: 900px;
+  }
+
+  .welcome-box {
+    padding: 48px;
+  }
+
+  .art-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .illustrations-section,
+  .contact-section {
+    padding: 64px 32px;
+  }
+}
